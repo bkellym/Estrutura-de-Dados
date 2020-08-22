@@ -15,6 +15,9 @@ jobs:
           command: pytest test/CircularLinkedListTest.py test/LinkedListTest.py test/NodeTest.py -v
           name: Test
 
+      - store_test_results:
+          path: test-results
+
 workflows:
   main:
     jobs:
