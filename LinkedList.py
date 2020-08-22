@@ -68,5 +68,25 @@ class LinkedList:
         new_node.prox = aux
 
     def remove(self, value):
-        # TODO: Método remover Node que armazene valor informado
-        return
+        if value is None:
+            raise ValueError("Value Invalid")
+
+        if self.head:
+            aux_before = None
+            aux = self.head
+            while aux is not None:
+                if aux.data == value:
+                    break
+                aux_before = aux
+                aux = aux.prox
+
+            if aux is not None:
+                if aux_before is None:
+                    self.head = aux.prox
+                else:
+                    aux_before.prox = aux.prox
+                self.remove(value)
+            else:
+                return
+        else:
+            raise ValueError("Not Valid, List is Empty")
