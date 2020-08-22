@@ -7,16 +7,25 @@ class LinkedList:
         self.head = None
 
     def list_print(self):
-        # TODO: Método de listar valores - Print
-        return
+        if self.head:
+            retorno = []
+            aux = self.head
+            while aux is not None:
+                retorno.append(aux.data)
+                aux = aux.prox
+            return retorno
+
+        else:
+            raise ValueError("Not Valid, LinkedList is empty")
 
     def show_slide(self):
         # TODO: Método de listar valores - OpenCV
         return
 
     def at_start(self, value):
-        # TODO: Método inserir Node início da lista
-        return
+        new_node = Node(value)
+        new_node.prox = self.head
+        self.head = new_node
 
     def at_end(self, value):
         # TODO: Método inserir Node final da lista
