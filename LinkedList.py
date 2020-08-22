@@ -28,8 +28,17 @@ class LinkedList:
         self.head = new_node
 
     def at_end(self, value):
-        # TODO: Método inserir Node final da lista
-        return
+        new_node = Node(value)
+
+        if self.head is None:
+            self.head = new_node
+            return
+
+        aux = self.head
+        while aux.prox is not None:
+            aux = aux.prox
+
+        aux.prox = new_node
 
     def at_between(self, value, position):
         # TODO: Método inserir Node na posição informada
