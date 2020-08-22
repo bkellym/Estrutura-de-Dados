@@ -12,8 +12,14 @@ jobs:
       - python/install-deps
       - python/save-cache
       - run:
-          command: pytest test/CircularLinkedListTest.py test/LinkedListTest.py test/NodeTest.py -v
-          name: Test
+          command: pytest test/NodeTest.py -v
+          name: NodeTest
+      - run:
+          command: pytest test/LinkedListTest.py -v
+          name: LinkedListTest
+      - run:
+          command: pytest test/CircularLinkedListTest.py -v
+          name: CircularLinkedListTest
 
       - store_test_results:
           path: test-results
