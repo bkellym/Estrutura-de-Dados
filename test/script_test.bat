@@ -1,0 +1,1 @@
+pytest CircularLinkedListTest.py LinkedListTest.py NodeTest.py -v
