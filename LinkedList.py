@@ -41,8 +41,31 @@ class LinkedList:
         aux.prox = new_node
 
     def at_between(self, value, position):
-        # TODO: Método inserir Node na posição informada
-        return
+        if (position < 0) or (self.head is None and position > 0):
+            raise ValueError("Position Invalid")
+
+        if position == 0:
+            self.at_start(value)
+            return
+
+        new_node = Node(value)
+        count = 0
+        aux = self.head
+        aux_before = None
+
+        while count < position:
+            aux_before = aux
+            if aux_before is None:
+                break
+            if aux is not None:
+                aux = aux.prox
+            count = count + 1
+
+        if aux_before is None:
+            raise ValueError("Position Invalid")
+
+        aux_before.prox = new_node
+        new_node.prox = aux
 
     def remove(self, value):
         # TODO: Método remover Node que armazene valor informado
