@@ -201,8 +201,8 @@ class MyTestCase(unittest.TestCase):
         lista = CircularLinkedList()
         lista.at_start(0)
         lista.at_end(1)
-        with self.assertRaisesWithMessage(ValueError):
-            lista.remove(3)
+        lista.remove(3)
+        self.assertEqual(lista.list_print(), [0, 1])
 
     # Utility functions
     def assertRaisesWithMessage(self, exception):
