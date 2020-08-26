@@ -46,8 +46,35 @@ class CircularLinkedList:
             self.tail = new_node
 
     def at_between(self, value, position):
-        # TODO: Método inserir Node na posição informada
-        return
+        if (position < 0) or (self.head is None and position > 0):
+            raise ValueError("Position Invalid")
+
+        if position == 0:
+            self.at_start(value)
+            return
+
+        new_node = Node(value)
+        count = 0
+        aux = self.head
+
+        while count < position - 1:
+            aux = aux.prox
+            if aux is self.head:
+                break
+            count = count + 1
+
+        if aux is self.head:
+            raise ValueError("Position Invalid")
+
+        aux_before = aux
+        aux = aux.prox
+
+        if self.tail == aux_before:
+            self.at_end(value)
+            return
+
+        aux_before.prox = new_node
+        new_node.prox = aux
 
     def remove(self, value):
         # TODO: Método remover Node que armazene valor informado
