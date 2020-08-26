@@ -24,8 +24,16 @@ class CircularLinkedList:
         return
 
     def at_start(self, value):
-        # TODO: Método inserir Node início da lista
-        return
+        new_node = Node(value)
+
+        if(self.head):
+            new_node.prox = self.head
+            self.tail.prox = new_node
+        else:
+            new_node.prox = new_node
+            self.tail = new_node
+
+        self.head = new_node
 
     def at_end(self, value):
         # TODO: Método inserir Node final da lista
