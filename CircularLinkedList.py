@@ -20,8 +20,18 @@ class CircularLinkedList:
             raise ValueError("Not Valid, LinkedList is empty")
 
     def show_slide(self):
-        # TODO: Método de listar valores - OpenCV
-        return
+        if self.head:
+            aux = self.head
+            while True:
+                aux.show_image()
+                key = cv.waitKey(300)
+                if key == 13:  # testa se código da tecla é correspondente a da tecla "Enter"
+                    cv.destroyAllWindows()
+                    break
+                aux = aux.prox
+
+        else:
+            raise ValueError("Not Valid, LinkedList is empty")
 
     def at_start(self, value):
         new_node = Node(value)

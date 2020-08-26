@@ -1,3 +1,4 @@
+import cv2 as cv
 from Node import *
 
 
@@ -19,8 +20,17 @@ class LinkedList:
             raise ValueError("Not Valid, LinkedList is empty")
 
     def show_slide(self):
-        # TODO: Método de listar valores - OpenCV
-        return
+        if self.head:
+            aux = self.head
+            while aux is not None:
+                aux.show_image()
+                key = cv.waitKey(0)
+                if key == 13:  # testa se código da tecla é correspondente a da tecla "Enter"
+                    cv.destroyAllWindows()
+                aux = aux.prox
+
+        else:
+            raise ValueError("Not Valid, LinkedList is empty")
 
     def at_start(self, value):
         new_node = Node(value)
