@@ -10,7 +10,7 @@ class CircularLinkedList:
     def list_print(self):
         if self.head:
             retorno = []
-            retorno.append(self.head)
+            retorno.append(self.head.data)
             aux = self.head.prox
             while aux is not self.head:
                 retorno.append(aux.data)
