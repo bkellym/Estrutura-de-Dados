@@ -8,8 +8,16 @@ class CircularLinkedList:
         self.tail: Node = None
 
     def list_print(self):
-        # TODO: Método de listar valores - Print
-        return
+        if self.head:
+            retorno = []
+            retorno.append(self.head)
+            aux = self.head.prox
+            while aux is not self.head:
+                retorno.append(aux.data)
+                aux = aux.prox
+            return retorno
+        else:
+            raise ValueError("Not Valid, LinkedList is empty")
 
     def show_slide(self):
         # TODO: Método de listar valores - OpenCV
