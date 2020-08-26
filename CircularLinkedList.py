@@ -77,5 +77,36 @@ class CircularLinkedList:
         new_node.prox = aux
 
     def remove(self, value):
-        # TODO: Método remover Node que armazene valor informado
-        return
+        if value is None:
+            raise ValueError("Value Invalid")
+
+        if self.head is None:
+            raise ValueError("Not Valid, List is Empty")
+
+        if self.head.data == value:
+            if self.head.prox == self.head:
+                self.head = None
+                self.tail = None
+            else:
+                self.head = self.head.prox
+                self.tail.prox = self.head
+
+        aux = self.head
+
+        while aux != self.tail:
+            if aux.prox.data == value:
+                break
+            aux = aux.prox
+
+        if aux.prox is not self.head:
+            aux_before = aux
+            aux = aux.prox
+            if aux is self.tail:
+                aux_before.prox = self.head
+                self.tail = aux_before
+            else:
+                aux_before.prox = aux.prox
+
+            self.remove(value)
+        else:
+            return
