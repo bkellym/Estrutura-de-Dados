@@ -5,6 +5,7 @@ class Node:
 
     def __init__(self, data: object):
         self.data = data
+        self.ant = None
         self.prox = None
 
     @property
@@ -17,14 +18,6 @@ class Node:
             raise ValueError("Not Valid, data is None")
 
         self._data = data
-
-    @property
-    def prox(self):
-        return self._prox
-
-    @prox.setter
-    def prox(self, node):
-        self._prox = node
 
     def to_string(self):
         print(str(self.data))
