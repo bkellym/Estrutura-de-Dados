@@ -20,6 +20,9 @@ jobs:
       - run:
           command: python -m pytest test/CircularLinkedListTest.py -v --junitxml=test-results/CircularLinkedListTest/results.xml
           name: CircularLinkedListTest
+      - run:
+          command: python -m pytest test/PilhaTest.py -v --junitxml=test-results/PilhaTest/results.xml
+          name: PilhaTest
       - store_test_results:
           path: test-results
 
