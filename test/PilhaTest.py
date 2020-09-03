@@ -4,35 +4,45 @@ from Pilha import *
 
 class MyTestCase(unittest.TestCase):
 
-    def __init__(self):
-        self.pilha = Pilha()
-
     def test_is_Empty_True(self):
-        self.assertEqual(self.pilha.isEmpty(), True)
+        pilha = Pilha()
+        self.assertEqual(pilha.isEmpty(), True)
 
     def test_is_Empty_False(self):
-        self.pilha.push(5)
-        self.assertEqual(self.pilha.isEmpty(), False)
+        pilha = Pilha()
+        pilha.push(5)
+        self.assertEqual(pilha.isEmpty(), False)
 
     def test_push_value(self):
-        self.assertEqual(self.pilha.list_print(), [5])
+        pilha = Pilha()
+        pilha.push(9)
+        self.assertEqual(pilha.list_print(), [9])
 
     def test_len_not_empty(self):
-        self.pilha.push(3)
-        self.assertEqual(self.pilha.size(), 2)
+        pilha = Pilha()
+        pilha.push(9)
+        pilha.push(3)
+        self.assertEqual(pilha.size(), 2)
 
     def test_len_empty(self):
-        self.pilha.pop()
-        self.pilha.pop()
-        self.assertEqual(self.pilha.size(), 0)
+        pilha = Pilha()
+        self.assertEqual(pilha.size(), 0)
 
     def test_pop_not_empty(self):
-        self.pilha.push(7)
-        self.assertEqual(self.pilha.pop(), 7)
+        pilha = Pilha()
+        pilha.push(7)
+        self.assertEqual(pilha.pop(), 7)
 
     def test_pop_empty(self):
+        pilha = Pilha()
         with self.assertRaisesWithMessage(ValueError):
-            self.pilha.pop()
+            pilha.pop()
+
+    def test_get_top(self):
+        pilha = Pilha()
+        pilha.push(7)
+        pilha.push(4)
+        self.assertEqual(pilha.top(), 4)
 
     # Utility functions
     def assertRaisesWithMessage(self, exception):
